@@ -11,7 +11,21 @@ public class Bomb : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Player>().ChangeHP(damage);
-            Destroy(gameObject);
+            DestroyBomb();
         }
+
+        else if (other.CompareTag("Ally"))
+        {
+            other.GetComponent<Ally>().ChangeHP(damage);
+            DestroyBomb();
+        }
+    }
+
+
+
+
+    private void DestroyBomb()
+    {
+        Destroy(gameObject);
     }
 }
