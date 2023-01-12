@@ -408,6 +408,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 100
+  player: {fileID: 1855420845}
+  followDistance: 2
+  allySpeed: 5
 --- !u!54 &596458134
 Rigidbody:
   m_ObjectHideFlags: 0
