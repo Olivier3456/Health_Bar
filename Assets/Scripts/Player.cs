@@ -13,16 +13,18 @@ public class Player : MonoBehaviour
     }
 
     [SerializeField] private HealthDisplay healthDisplay;
+    [SerializeField] private HealthBar healthBar;
 
 
     void Start()
     {
         health = initialHealth;
-        ChangeHP(0);
+        healthDisplay.ChangePlayerHealthDisplay(health);
     }
     public void ChangeHP(int hpToRemoveOrAdd)
     {
         health -= hpToRemoveOrAdd;
-        healthDisplay.ChangePlayerHealthDisplay(health);        
+        healthDisplay.ChangePlayerHealthDisplay(health);
+        healthBar.TakeDamage(health);
     }
 }

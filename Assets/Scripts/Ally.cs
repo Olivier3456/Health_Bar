@@ -22,7 +22,7 @@ public class Ally : MonoBehaviour
     private void Start()
     {
         health = initialHealth;
-        ChangeHP(0);
+        healthDisplay.ChangeAllyHealthDisplay(health);
     }
 
 
