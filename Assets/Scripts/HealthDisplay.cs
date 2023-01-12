@@ -2,21 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
+using Image = UnityEngine.UI.Image;
 
 public class HealthDisplay : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI playerHealthText;
-    [SerializeField] TextMeshPro healthTextOnPlayer;
+    [SerializeField] TextMeshProUGUI caracterHealthText;
+    
+    [SerializeField] IntVariable caracterHP;
 
-    [SerializeField] TextMeshProUGUI allyHealthText;
+    [SerializeField] private Image healthBar;
+
+    private int maxHealth;
+    private int lastCaraterHP;
+
+    private void Start()
+    {
+        maxHealth = caracterHP.value;
+        ChangeCaracterHealthDisplay();
+    }
         
-    public void ChangePlayerHealthDisplay(int playerHealth)
+    private void Update()
     {
-        playerHealthText.text = healthTextOnPlayer.text = "Player HP = " + playerHealth;      
+        if (lastCaraterHP != caracterHP.value)
+        {
+            ChangeCaracterHealthDisplay();
+            HealthBarChange(lastCaraterHP);
+        }
+        
     }
 
-    public void ChangeAllyHealthDisplay(int allyHealth)
+
+    public void ChangeCaracterHealthDisplay()
     {
-        allyHealthText.text = healthTextOnPlayer.text = "Ally HP = " + allyHealth;
+        lastCaraterHP = caracterHP.value;
+        caracterHealthText.text = caracterHealthText.text = "HP : " + lastCaraterHP;      
     }
+
+
+    public void HealthBarChange(int health)
+    {
+        Debug.Log("Méthode TakeDamage appelée, HP restants : " + health);
+        Debug.Log((float)(health / maxHealth));
+    }
+
 }

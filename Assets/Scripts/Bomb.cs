@@ -6,23 +6,14 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] private int damage;
     
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Caracter"))
         {
-            other.GetComponent<Player>().ChangeHP(damage);
+            other.GetComponent<Caracter>().ChangeHP(damage);
             DestroyBomb();
-        }
-
-        else if (other.CompareTag("Ally"))
-        {
-            other.GetComponent<Ally>().ChangeHP(damage);
-            DestroyBomb();
-        }
+        }        
     }
-
-
-
 
     private void DestroyBomb()
     {
