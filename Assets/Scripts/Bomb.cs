@@ -6,14 +6,12 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] private int damage;
     
-    void Start()
+    private void OnTriggerStay(Collider other)
     {
-        
-    }
-
-    
-    void Update()
-    {
-        
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Player>().ChangeHP(damage);
+            Destroy(gameObject);
+        }
     }
 }

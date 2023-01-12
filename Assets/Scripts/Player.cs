@@ -20,10 +20,10 @@ public class Player : MonoBehaviour
         health = initialHealth;
         healthDisplay.ChangeHealthDisplay(health);
     }
-
-
-    void Update()
+    public void ChangeHP(int hpToRemoveOrAdd)
     {
-
+        health -= hpToRemoveOrAdd;
+        healthDisplay.ChangeHealthDisplay(health);
+        Debug.Log(health);
     }
 }

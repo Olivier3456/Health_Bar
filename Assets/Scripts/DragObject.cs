@@ -3,8 +3,7 @@ using UnityEngine;
 public class DragObject : MonoBehaviour     // Permet de faire un drag and drop avec la souris sur l'objet.
 {
     private Vector3 screenPoint;
-    private Vector3 offset;
-
+   
     void OnMouseDown()
     {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);    
