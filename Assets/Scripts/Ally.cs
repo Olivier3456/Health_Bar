@@ -16,11 +16,13 @@ public class Ally : MonoBehaviour
     [SerializeField] private float followDistance = 2f;
     [SerializeField] private float allySpeed = 0.5f;
 
+    [SerializeField] private HealthDisplay healthDisplay;
+
 
     private void Start()
     {
         health = initialHealth;
-        
+        ChangeHP(0);
     }
 
 
@@ -35,7 +37,7 @@ public class Ally : MonoBehaviour
 
     public void ChangeHP(int hpToRemoveOrAdd)
     {
-        health -= hpToRemoveOrAdd;        
-        Debug.Log(health);
+        health -= hpToRemoveOrAdd;
+        healthDisplay.ChangeAllyHealthDisplay(health);        
     }
 }

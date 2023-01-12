@@ -18,12 +18,11 @@ public class Player : MonoBehaviour
     void Start()
     {
         health = initialHealth;
-        healthDisplay.ChangeHealthDisplay(health);
+        ChangeHP(0);
     }
     public void ChangeHP(int hpToRemoveOrAdd)
     {
         health -= hpToRemoveOrAdd;
-        healthDisplay.ChangeHealthDisplay(health);
-        Debug.Log(health);
+        healthDisplay.ChangePlayerHealthDisplay(health);        
     }
 }

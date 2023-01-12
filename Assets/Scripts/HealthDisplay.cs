@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class HealthDisplay : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] TextMeshProUGUI playerHealthText;
     [SerializeField] TextMeshPro healthTextOnPlayer;
-    
-    public void ChangeHealthDisplay(int playerHealth)
+
+    [SerializeField] TextMeshProUGUI allyHealthText;
+        
+    public void ChangePlayerHealthDisplay(int playerHealth)
     {
-        healthText.text = healthTextOnPlayer.text = "Player HP = " + playerHealth;      
+        playerHealthText.text = healthTextOnPlayer.text = "Player HP = " + playerHealth;      
+    }
+
+    public void ChangeAllyHealthDisplay(int allyHealth)
+    {
+        allyHealthText.text = healthTextOnPlayer.text = "Ally HP = " + allyHealth;
     }
 }
