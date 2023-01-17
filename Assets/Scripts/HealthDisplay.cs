@@ -13,8 +13,8 @@ public class HealthDisplay : MonoBehaviour
 
     [SerializeField] private Image healthBar;
 
-    private int maxHealth;
-    private int lastCaraterHP;
+    private float maxHealth;
+    private float lastCaraterHP;
 
     private void Start()
     {
@@ -26,24 +26,23 @@ public class HealthDisplay : MonoBehaviour
     {
         if (lastCaraterHP != caracterHP.value)
         {
+            lastCaraterHP = caracterHP.value;
             ChangeCaracterHealthDisplay();
-            HealthBarChange(lastCaraterHP);
-        }
-        
+            HealthBarChange();
+        }        
     }
 
 
     public void ChangeCaracterHealthDisplay()
-    {
-        lastCaraterHP = caracterHP.value;
+    {        
         caracterHealthText.text = caracterHealthText.text = "HP : " + lastCaraterHP;      
     }
 
 
-    public void HealthBarChange(int health)
+    public void HealthBarChange()
     {
-        Debug.Log("Méthode TakeDamage appelée, HP restants : " + health);
-        Debug.Log((float)(health / maxHealth));
+        float barScaleX = lastCaraterHP / maxHealth;
+        healthBar.transform.localScale = new Vector2(barScaleX, healthBar.transform.localScale.y);      
+        Debug.Log(barScaleX);
     }
-
 }
