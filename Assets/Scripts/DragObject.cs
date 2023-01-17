@@ -11,7 +11,7 @@ public class DragObject : MonoBehaviour     // Permet de faire un drag and drop 
 
 
         // L'offset correspondra à la distance entre le curseur de la souris et le centre de l'objet cliqué.
-        // Il sera utilisé dans OnMouseDrag.
+        // Il sera utilisé dans OnMouseDrag pour que l'objet ne se snap pas sur le curseur.
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 
